@@ -1,4 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
@@ -10,6 +9,7 @@
 !.yarn/releases
 !.yarn/versions
 
+
 # testing
 /coverage
 
@@ -19,6 +19,9 @@
 
 # production
 /build
+
+/postcss.config.mjs
+/eslint.config.mjs
 
 # misc
 .DS_Store
