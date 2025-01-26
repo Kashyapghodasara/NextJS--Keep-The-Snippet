@@ -22,6 +22,7 @@
 
 /postcss.config.mjs
 /eslint.config.mjs
+components.json
 
 # misc
 .DS_Store
