@@ -8,3 +8,7 @@
     - Create a UI for homePage and newSnippetPage
     - Dynamic Routing - Slug
     - Create Snippet functionality completed
+
+### Day 2  -  Monday - 27/01/2025
+    - Create a UI for editPage and newSnippetPage
+    - Setup monaco Code editor/react

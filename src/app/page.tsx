@@ -10,7 +10,7 @@ export default async function Home() {
     <div className="">
       <div className="flex items-center justify-between">
         <div className=" m-2">
-          <h1 className="text-4xl font-bold pb-12"> Home </h1>
+          <h1 className="text-4xl font-bold pb-12 underline"> Home </h1>
           <h1 className="text-xl font-semibold">Snippets</h1>
         </div>
         <div className="">
