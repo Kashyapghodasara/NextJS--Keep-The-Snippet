@@ -18,3 +18,7 @@
 ### Day 3  -  Tuesday - 28/01/2025
     - Create a UI for editPage and newSnippetPage
     - Complete Edit functionality
+
+### Day 4  -  Thursday - 28/01/2025
+    - Complete Edit - Delete functionality
+    - Learn error Handling in NextJS

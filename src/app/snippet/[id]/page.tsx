@@ -2,17 +2,18 @@ import React from 'react'
 import Link from 'next/link'
 import { prisma } from '@/lib/prisma'
 import { Button } from '@/components/ui/button'
+import { deleteSnippet } from '@/actions'
 
 const dynamicPageSnippet = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   // Slug value always be in String formate
   const id = parseInt((await params).id)
   const snippet = await prisma.snippet.findUnique({
-    where: {
-      id
-    }
+    where: { id }
   })
   if (!snippet) return <h1 className='text-xl font-semibold'>Snippet is Not available</h1>
+
+  const deleteHandler = deleteSnippet.bind(null, snippet.id)
 
   return (
     <div className=''>
@@ -22,7 +23,10 @@ const dynamicPageSnippet = async ({ params }: { params: Promise<{ id: string }> 
           <Link href={`/snippet/${snippet.id}/edit`}>
             <Button variant={'outline'}>Edit</Button>
           </Link>
-          <Button variant='destructive'>Delete</Button>
+          <form action={deleteHandler}>
+            <Button variant='destructive' type="submit">Delete</Button>
+          </form>
+
         </div>
       </div>
       <div className='mt-10 items-start flex flex-col'>
