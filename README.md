@@ -22,3 +22,7 @@
 ### Day 4  -  Thursday - 28/01/2025
     - Complete Edit - Delete functionality
     - Learn error Handling in NextJS
+
+### Day 5  -  Saturday - 15/02/2025
+    - Learn Caching in NextJS
+    - Implement Dynamic Caching into Static Caching

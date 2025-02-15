@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma'
 import { Button } from '@/components/ui/button'
 import { deleteSnippet } from '@/actions'
 
-const dynamicPageSnippet = async ({ params }: { params: Promise<{ id: string }> }) => {
+const SnippetDetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   // Slug value always be in String formate
   const id = parseInt((await params).id)
@@ -41,4 +41,16 @@ const dynamicPageSnippet = async ({ params }: { params: Promise<{ id: string }> 
   )
 }
 
-export default dynamicPageSnippet
+export default SnippetDetailPage
+
+
+// Bydefault Provided Fun. in nextJS for Dynamic to static route
+// Cache Data won't immediately Reflect - We have to use "revalidatePath"
+export const generateStaticParams = async (): Promise<{ id: string }[]> => {
+  const Snippet = await prisma.snippet.findMany();
+
+  return Snippet.map((s) => ({
+    id: s.id.toString(), // ID must be a string
+  }));
+};
+

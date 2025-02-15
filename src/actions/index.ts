@@ -1,9 +1,10 @@
 "use server"
 import {prisma} from '@/lib/prisma'
 import { redirect } from 'next/navigation'
+import {revalidatePath} from "next/cache"
 
 export const saveSnippet = async (id: number, code: string) => {
-    const res = await prisma.snippet.update({
+    await prisma.snippet.update({
         where: {
             id
         },
@@ -13,8 +14,9 @@ export const saveSnippet = async (id: number, code: string) => {
 }
 
 export const deleteSnippet = async (id: number) => {
-    const res = await prisma.snippet.delete({
+   await prisma.snippet.delete({
         where: { id }
     })
-    redirect(`/`)
+    revalidatePath("/")  // ON-demand Caching - Better Performance
+    redirect(`/`);
 }

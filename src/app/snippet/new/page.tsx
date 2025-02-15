@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
+import {revalidatePath} from "next/cache"
 
 const page = () => {
 
@@ -21,6 +22,7 @@ const page = () => {
             }
         })
         console.log("Created Snippet", createdSnippet);
+        revalidatePath("/")  // On Demand Caching - better performance
         redirect("/")
     }
 
